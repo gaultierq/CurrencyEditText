@@ -65,6 +65,9 @@ public class MainActivity extends Activity {
         //cet.formatCurrency("test failure two");
     }
 
+    public void setPrice(View view) {
+        cet.setPrice(new Random().nextInt(50000));
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -87,4 +90,5 @@ public class MainActivity extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }

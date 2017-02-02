@@ -201,8 +201,21 @@ public class CurrencyEditText extends EditText {
         this.valueInLowestDenom = mValueInLowestDenom;
     }
 
+    public void setPrice(Integer price) {
+        setPrice(price == null ? null : price.longValue());
+    }
+
     public void setPrice(Long price) {
         setValueInLowestDenom(price);
+        if (price != null) {
+            String textToDisplay;
+            try{
+                textToDisplay = CurrencyTextFormatter.formatText(price.toString(), currency, locale, defaultLocale);
+                setText(textToDisplay);
+            }
+            catch(IllegalArgumentException exception){
+            }
+        }
     }
 
     public Long getPrice() {
@@ -249,5 +262,10 @@ public class CurrencyEditText extends EditText {
 
     private String getDefaultHintValue() {
         return currency.getSymbol();
+    }
+
+
+    public int getFractionDigit() {
+        return 2;
     }
 }
