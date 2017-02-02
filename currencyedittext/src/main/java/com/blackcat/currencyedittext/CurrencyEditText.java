@@ -201,6 +201,13 @@ public class CurrencyEditText extends EditText {
         this.valueInLowestDenom = mValueInLowestDenom;
     }
 
+    public void setPrice(Long price) {
+        setValueInLowestDenom(price);
+    }
+
+    public Long getPrice() {
+        return this.valueInLowestDenom;
+    }
 
     /*
     PRIVATE HELPER METHODS
